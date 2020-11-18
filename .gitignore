@@ -1,6 +1,9 @@
 *.pyc
 .torch
 _ext
+*.zip
+*.tar
+*.mp4
 *.o
 work
 */
