@@ -57,6 +57,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--skip_training', action='store_true')
     parser.add_argument('--skip_validation', action='store_true')
+    parser.add_argument('--save_dir', type=str)
 
     parser.add_argument('--fp16', action='store_true', help='Run model in pseudo-fp16 mode (fp16 storage fp32 math).')
     parser.add_argument('--fp16_scale', type=float, default=1024., help='Loss scaling, positive power of 2 values can improve fp16 convergence.')
@@ -341,8 +342,8 @@ if __name__ == '__main__':
 
     # Reusable function for inference
     def inference(args, epoch, data_loader, model, offset=0):
-        if os.path.exists(join('/usr/xtmp/ct214/daml/vr_sickness/perspective_skyhouse_of_results/', args.name+".npy")) and not args.name=="right_eye_theta_0_phi_-82.5":
-            print("seen ", join('/usr/xtmp/ct214/daml/vr_sickness/perspective_skyhouse_of_results/', args.name))
+        if os.path.exists(join(args.save_dir, args.name+".npy")) and not args.name=="right_eye_theta_0_phi_-82.5":
+            print("seen ", join(args.save_dir, args.name))
             return
         model.eval()
         tosave = np.zeros((1800, 2))
@@ -401,7 +402,7 @@ if __name__ == '__main__':
                 break
 
         progress.close()
-        np.save(join('/usr/xtmp/ct214/daml/vr_sickness/perspective_skyhouse_of_results/', args.name), tosave)
+        np.save(join(args.save_dir, args.name), tosave)
         return
 
     # Primary epoch loop
