@@ -1,3 +1,10 @@
+Video to frame: video_processing.py line38: path = your video path; line39: name =  your video name. Output frames to folder "~/original-frames/<video name>/"
+
+Perspective view: 360to2d.py <video name>. (Change 360to2d.py line117 to your frames folder address). Output: each frame of perspective view. Stored at "~/vr_sickness/perspectives_<video name>/left_eye/theta_" + str(theta) + "_phi_" + str(phi) + "/" folder.
+    
+To get optical flow: run.sh parameter.
+
+
 # flownet2-pytorch 
 
 Pytorch implementation of [FlowNet 2.0: Evolution of Optical Flow Estimation with Deep Networks](https://arxiv.org/abs/1612.01925). 
