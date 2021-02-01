@@ -17,7 +17,7 @@ class Enquirec2Perspec:
     # Input: 
     # 1. wFOV: horizontal field of view in degrees
     # 2. THETA: left/right angle in degrees of view center(right direction is positive, left direction is negative)
-    # 3. PHI: up/down angle in degrees of view center(right direction is positive, left direction is negative)
+    # 3. PHI: up/down angle in degrees of view center(up direction is positive, down direction is negative)
     # 4. height, width: height/width of the output viewport image, should fit the resolution of each eye's viewport
     def GetPerspective(self, FOV, THETA, PHI, height, width):
         # set radius for the sphere which 
@@ -130,7 +130,7 @@ for root, dirs, files in os.walk("/usr/xtmp/ct214/daml/vr_sickness/pytorch-spyne
             right_equ = Enquirec2Perspec(right_eye_img) 
             print("start sliding ", file)
             for theta in range(-180, 180, 15):
-                for phi in range(-180, 180, 15):
+                for phi in range(-90, 90, 15):
                     phi /= 2
                     start_converting = time.time()
                     convert(theta, phi, "/usr/xtmp/ct214/daml/vr_sickness/perspectives_skyhouse/left_eye/theta_" + str(theta) + "_phi_" + str(phi) + "/", file, left_equ)
