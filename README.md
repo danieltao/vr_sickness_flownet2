@@ -1,4 +1,6 @@
-Video to frame: video_processing.py line38: path = your video path; line39: name =  your video name. Output frames to folder "~/original-frames/<video name>/"
+
+## Video to frame: 
+video_processing.py line38: path = your video path; line39: name =  your video name. Output frames to folder "~/original-frames/<video name>/"
 
 ## Equirectangular image to perspective image based on the view: 
 
