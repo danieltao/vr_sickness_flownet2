@@ -15,7 +15,7 @@ class Enquirec2Perspec:
     # Function convert equirectangular image to perspective
     # view based on the view position.
     # Input: 
-    # 1. wFOV: horizontal field of view in degrees
+    # 1. FOV: horizontal field of view in degrees
     # 2. THETA: left/right angle in degrees of view center(right direction is positive, left direction is negative)
     # 3. PHI: up/down angle in degrees of view center(up direction is positive, down direction is negative)
     # 4. height, width: height/width of the output viewport image, should fit the resolution of each eye's viewport
