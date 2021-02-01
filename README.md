@@ -1,5 +1,17 @@
 Video to frame: video_processing.py line38: path = your video path; line39: name =  your video name. Output frames to folder "~/original-frames/<video name>/"
 
+Equirectangular image to perspective image based on the view: 
+    class Enquirec2Perspec:
+        __init__(self, img): 
+            img: left eye's current frame of the panoramic video (top half of the video)
+        GetPerspective(self, FOV, THETA, PHI, height, width):
+            1. FOV: horizontal field of view in degrees. *Here we need to set it as 104.* 
+            2. THETA: left/right angle in degrees of view center(right direction is positive, left direction is negative)
+            3. PHI: up/down angle in degrees of view center(up direction is positive, down direction is negative)
+            4. height, width: height/width of the output viewport image, should fit the resolution of each eye's viewport. *Here we need to set them as 1440, 1600.* 
+     
+     *For the viewport at center, the THETA, PHI should be 0, 0. Once you have the perpective images from the ceter view for the left eye, use following code to get optical flow.*
+
 Perspective view: 360to2d.py <video name>. (Change 360to2d.py line117 to your frames folder address). Output: each frame of perspective view. Stored at "~/vr_sickness/perspectives_<video name>/left_eye/theta_" + str(theta) + "_phi_" + str(phi) + "/" folder.
     
 To get optical flow: run.sh parameter.--inference_dataset_root <frames dir> --name <name of run> --save_dir <target dir to save to>
